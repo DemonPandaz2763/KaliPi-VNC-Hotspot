@@ -1,0 +1,10 @@
+[Unit]
+Description=Enable x11vnc at startup, before login
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/x11vnc -display :0 -auth guess -forever -loop -noxdamage -repeat
+
+[Install]
+WantedBy=multi-user.target

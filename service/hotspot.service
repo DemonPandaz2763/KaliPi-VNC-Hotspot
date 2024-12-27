@@ -1,0 +1,13 @@
+[Unit]
+Description=Manage Hotspot based on wlan1 availability
+After=network.target
+Wants=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/start_ap.sh
+RemainAfterExit=true
+ExecStop=/usr/local/bin/start_ap.sh stop
+
+[Install]
+WantedBy=multi-user.target
